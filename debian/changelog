@@ -1,3 +1,9 @@
+spl-linux (0.6.5.3-0ubuntu1) xenial; urgency=medium
+
+  * Updated to spl-0.6.5.3 from https://github.com/zfsonlinux/spl.git
+
+ -- Tim Gardner <tim.gardner@canonical.com>  Wed, 28 Oct 2015 08:18:50 -0600
+
 spl-linux (0.6.4.2-0ubuntu1) wily; urgency=medium
 
   [ Colin Ian King ]

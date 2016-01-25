@@ -1,18 +1,32 @@
+Description: Revert "Remove /etc/hostid missing warning"
 From 7559daf38acc293474d3d2a13ecf746bc7507a11 Mon Sep 17 00:00:00 2001
 From: Darik Horn <dajhorn@vanadac.com>
 Date: Tue, 11 Oct 2011 18:32:58 -0500
 Subject: [PATCH 1/2] Revert "Remove /etc/hostid missing warning"
 
 This reverts commit 6b3b569df30d13ed7bbbff877cffc71290a52f12.
----
- module/spl/spl-generic.c |    6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ .
+ spl-linux (0.6.5.3-0ubuntu1) xenial; urgency=medium
+ .
+   * Updated to spl-0.6.5.3 from https://github.com/zfsonlinux/spl.git
+Author: Tim Gardner <tim.gardner@canonical.com>
 
-Index: b/module/spl/spl-generic.c
-===================================================================
---- a/module/spl/spl-generic.c
-+++ b/module/spl/spl-generic.c
-@@ -471,8 +471,12 @@
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- spl-linux-0.6.5.3.orig/module/spl/spl-generic.c
++++ spl-linux-0.6.5.3/module/spl/spl-generic.c
+@@ -416,8 +416,12 @@ hostid_read(void)
  
  	file = kobj_open_file(spl_hostid_path);
  
