@@ -1,4 +1,16 @@
-spl-linux (0.6.4.2-1~vivid) vivid; urgency=low
+spl-linux (0.6.4.2-0ubuntu1) wily; urgency=medium
+
+  [ Colin Ian King ]
+  * minor lintian fixes on debian/copyright
+  * prepare for Ubuntu Wily upload
+
+  [ Iain Lane ]
+  * Copy debian/copyright over from Debian as it is slightly different and
+    more current.
+
+ -- Colin Ian King <colin.king@canonical.com>  Wed, 14 Oct 2015 15:46:18 +0100
+
+spl-linux (0.6.4.2-0~vivid) vivid; urgency=low
 
   [ Ned Bass ]
   * Tag spl-0.6.4.2 (detached)
