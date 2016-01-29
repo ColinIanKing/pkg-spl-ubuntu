@@ -1,3 +1,9 @@
+spl-linux (0.6.5.4-0ubuntu1) xenial; urgency=medium
+
+  * Sync with upstream 0.6.5.4 release
+
+ -- Colin Ian King <colin.king@canonical.com>  Fri, 29 Jan 2016 11:48:00 +0000
+
 spl-linux (0.6.5.3-0ubuntu3) xenial; urgency=medium
 
   * Fix build failure of SPL because libc-dev is missing (LP: #1536299)

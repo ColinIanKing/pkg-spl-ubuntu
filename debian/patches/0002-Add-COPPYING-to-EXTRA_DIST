@@ -1,0 +1,13 @@
+Index: spl-linux-0.6.5.4/Makefile.am
+===================================================================
+--- spl-linux-0.6.5.4.orig/Makefile.am
++++ spl-linux-0.6.5.4/Makefile.am
+@@ -20,7 +20,7 @@ nodist_kernel_HEADERS = spl.release spl_
+ endif
+ 
+ AUTOMAKE_OPTIONS = foreign
+-EXTRA_DIST  = autogen.sh META DISCLAIMER copy-builtin
++EXTRA_DIST  = autogen.sh META DISCLAIMER copy-builtin COPYING
+ EXTRA_DIST += config/config.awk config/rpm.am config/deb.am config/tgz.am
+ 
+ distclean-local::
