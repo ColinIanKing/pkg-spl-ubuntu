@@ -1,3 +1,10 @@
+spl-linux (0.6.5.4-0ubuntu2) xenial; urgency=medium
+
+  * Add COPYING to EXTRA_DIST var so COPYING file lands in package
+  * Debian/rules; Don't remove COPYING as we want in the kernel source
+
+ -- Colin Ian King <colin.king@canonical.com>  Thu, 4 Feb 2016 15:58:12 +0000
+
 spl-linux (0.6.5.4-0ubuntu1) xenial; urgency=medium
 
   * Sync with upstream 0.6.5.4 release
