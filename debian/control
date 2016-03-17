@@ -17,7 +17,7 @@ Vcs-Git: git://github.com/dajhorn/pkg-spl.git
 Vcs-Browser: https://github.com/dajhorn/pkg-spl/
 
 Package: spl-dkms
-Architecture: amd64 arm64 ppc64el powerpc64-smp
+Architecture: any
 Depends: ${misc:Depends}, libc-dev, dkms (>= 2.2.0.2), file, lsb-release
 Recommends: spl
 Description: Solaris Porting Layer kernel modules for Linux
@@ -29,7 +29,7 @@ Description: Solaris Porting Layer kernel modules for Linux
  a testing harness for the SPL module.
 
 Package: spl
-Architecture: amd64 arm64 ppc64el powerpc64-smp
+Architecture: any
 Conflicts: spl-dev
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: spl-dkms

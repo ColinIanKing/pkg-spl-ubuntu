@@ -1,0 +1,40 @@
+From 5d873977738eb90732f7bd465faa1aa7edbb365c Mon Sep 17 00:00:00 2001
+From: Dimitri John Ledkov <xnox@ubuntu.com>
+Date: Wed, 16 Mar 2016 21:32:08 +0000
+Subject: [PATCH] Add support for s390[x].
+
+Signed-off-by: Dimitri John Ledkov <xnox@ubuntu.com>
+---
+ include/sys/isa_defs.h | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/include/sys/isa_defs.h b/include/sys/isa_defs.h
+index 7e15b93..3d47487 100644
+--- a/include/sys/isa_defs.h
++++ b/include/sys/isa_defs.h
+@@ -131,7 +131,21 @@
+ #define _BIG_ENDIAN
+ #define _SUNOS_VTOC_16
+ 
+-#else /* Currently x86_64, i386, arm, powerpc, and sparc are supported */
++/* s390 arch specific defines */
++#elif defined(__s390__)
++#if defined(__s390x__)
++#if !defined(_LP64)
++#define	_LP64
++#endif
++#else
++#if !defined(_ILP32)
++#define	_ILP32
++#endif
++#endif
++
++#define	_BIG_ENDIAN
++
++#else /* Currently x86_64, i386, arm, powerpc, s390, and sparc are supported */
+ #error "Unsupported ISA type"
+ #endif
+ 
+-- 
+2.7.3
+
