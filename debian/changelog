@@ -1,3 +1,18 @@
+spl-linux (0.6.5.6-0ubuntu1) xenial; urgency=medium
+
+  * Sync with upstream 0.6.5.6 release
+    Remove s390x patch now that it is in 0.6.5.6
+    Remove incorrect Vcs fields from debian/control
+    Rename patch Add-COPPYING-to-EXTRA_DIST to Add-COPYING-to-EXTRA_DIST
+
+ -- Colin Ian King <colin.king@canonical.com>  Wed, 23 Mar 2016 23:43:09 +0000
+
+spl-linux (0.6.5.5-0ubuntu1~testing1) xenial; urgency=medium
+
+  * Sync with upstream 0.6.5.5 release
+
+ -- Colin Ian King <colin.king@canonical.com>  Mon, 21 Mar 2016 10:57:18 +0000
+
 spl-linux (0.6.5.4-0ubuntu3) xenial; urgency=medium
 
   * Cherry-pick patch for s390x.

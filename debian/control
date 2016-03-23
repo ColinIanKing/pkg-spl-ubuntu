@@ -13,8 +13,6 @@ Build-Depends: autotools-dev,
  libtool,
 Standards-Version: 3.9.6
 Homepage: http://www.zfsonlinux.org/
-Vcs-Git: git://github.com/dajhorn/pkg-spl.git
-Vcs-Browser: https://github.com/dajhorn/pkg-spl/
 
 Package: spl-dkms
 Architecture: any
