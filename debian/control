@@ -11,7 +11,7 @@ Build-Depends: autotools-dev,
  dh-autoreconf,
  dkms (>= 2.2.0.2),
  libtool,
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Homepage: http://www.zfsonlinux.org/
 
 Package: spl-dkms
