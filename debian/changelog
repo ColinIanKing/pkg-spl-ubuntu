@@ -1,3 +1,9 @@
+spl-linux (0.6.5.7-0ubuntu2) yakkety; urgency=medium
+
+  * Enable the spl/splat tests to exercise the SPL kernel module (LP: #1579036)
+
+ -- Colin Ian King <colin.king@canonical.com>  Thu, 26 May 2016 16:27:19 +0100
+
 spl-linux (0.6.5.7-0ubuntu1) yakkety; urgency=medium
 
   [ Colin Ian King ]
