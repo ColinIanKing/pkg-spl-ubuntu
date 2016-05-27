@@ -48,7 +48,7 @@ SPLAT_TESTS=\
 memtotal=$(grep "MemTotal" /proc/meminfo | awk '{print $2}')
 if [ ! -z $memtotal ]; then
         if [ $memtotal -gt 4194304 ]; then
-		SPLAT_TESTS="kmem:slab_large slab_align $SPLAT_TESTS"
+		SPLAT_TESTS="kmem:slab_large kmem:slab_align $SPLAT_TESTS"
         fi
 fi
 
