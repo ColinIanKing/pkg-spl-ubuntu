@@ -1,3 +1,12 @@
+spl-linux (0.6.5.7-0ubuntu4) yakkety; urgency=medium
+
+  * Remove breaks-testbed in tests/control as this purges the splat binary
+    after the 1st test, which makes the 2nd test skip over the crucial splat
+    testing
+  * Skip the splat slab_large and slab_align tests on small memory machines
+
+ -- Colin Ian King <colin.king@canonical.com>  Fri, 27 May 2016 17:43:11 +0100
+
 spl-linux (0.6.5.7-0ubuntu3) yakkety; urgency=medium
 
   * Only perform dep8 tests on real hardware (LP: #1586314)
