@@ -1,3 +1,13 @@
+spl-linux (0.6.5.7-0ubuntu3) yakkety; urgency=medium
+
+  * Only perform dep8 tests on real hardware (LP: #1586314)
+    - Add isolation-machine, breaks-testbed to tests/control Restrictions as
+      we need to insert/remove the spl kernel module.
+    - Also restrict spl tests to 64 bit systems as that all we support for
+      ZFS
+
+ -- Colin Ian King <colin.king@canonical.com>  Fri, 27 May 2016 10:08:10 +0100
+
 spl-linux (0.6.5.7-0ubuntu2) yakkety; urgency=medium
 
   * Enable the spl/splat tests to exercise the SPL kernel module (LP: #1579036)

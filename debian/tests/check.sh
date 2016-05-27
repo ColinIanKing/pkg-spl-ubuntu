@@ -60,6 +60,11 @@ warn() {
 	echo "${prog}: $1" >&2
 }
 
+if [ $(getconf LONG_BIT) != 64 ]; then
+	echo "Skipping test, only valid for 64 bit architectures"
+	exit 0
+fi
+
 if [ -n "$V" ]; then
 	verbose="-v"
 fi
