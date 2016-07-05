@@ -1,3 +1,20 @@
+spl-linux (0.6.5.6-0ubuntu4) xenial; urgency=medium
+
+  * Fix do_div() types in condvar:timeout (LP: #1599219)
+    - The do_div() macro expects unsigned types and this is detected in
+      powerpc implementation of do_div().
+  * Only perform dep8 tests on real hardware (LP: #1599221)
+    - Add isolation-machine to tests/control Restrictions as
+      we need to insert/remove the spl kernel module.
+    - Also restrict spl tests to 64 bit systems and don't run on 32 bit
+      architectures.
+    - Limit large memory splat tests on systems with plenty of memory to
+      accommodate the tests.
+  * Fix dep8 splat test, should be kmem:slab_align and not slab_align in
+    the SPLAT_TESTS large memory test case (LP: #1599259)
+
+ -- Colin Ian King <colin.king@canonical.com>  Tue, 05 Jul 2016 19:51:41 +0100
+
 spl-linux (0.6.5.6-0ubuntu3) xenial; urgency=medium
 
   * Enable the spl/splat tests to exercise the SPL kernel module (LP: #1579036)

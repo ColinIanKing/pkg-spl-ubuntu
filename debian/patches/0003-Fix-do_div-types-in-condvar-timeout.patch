@@ -1,0 +1,56 @@
+From 66e89c1119f6cbb54d93c3d8dae6ed5d0b930557 Mon Sep 17 00:00:00 2001
+From: Brian Behlendorf <behlendorf1@llnl.gov>
+Date: Tue, 22 Dec 2015 09:26:10 -0800
+Subject: [PATCH] Fix do_div() types in condvar:timeout
+
+The do_div() macro expects unsigned types and this is detected in
+powerpc implementation of do_div().
+
+Signed-off-by: Brian Behlendorf <behlendorf1@llnl.gov>
+Closes #516
+---
+ module/splat/splat-condvar.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/module/splat/splat-condvar.c b/module/splat/splat-condvar.c
+index 3ffa1c7..bdbaf79 100644
+--- a/module/splat/splat-condvar.c
++++ b/module/splat/splat-condvar.c
+@@ -413,8 +413,8 @@ splat_condvar_test5(struct file *file, void *arg)
+         kcondvar_t condvar;
+         kmutex_t mtx;
+ 	clock_t time_left, time_before, time_after, time_delta;
+-	int64_t whole_delta;
+-	int32_t remain_delta;
++	uint64_t whole_delta;
++	uint32_t remain_delta;
+ 	int rc = 0;
+ 
+ 	mutex_init(&mtx, SPLAT_CONDVAR_TEST_NAME, MUTEX_DEFAULT, NULL);
+@@ -438,19 +438,20 @@ splat_condvar_test5(struct file *file, void *arg)
+ 			splat_vprint(file, SPLAT_CONDVAR_TEST5_NAME,
+ 			           "Thread correctly timed out and was asleep "
+ 			           "for %d.%d seconds (%d second min)\n",
+-			           (int)whole_delta, remain_delta, 1);
++			           (int)whole_delta, (int)remain_delta, 1);
+ 		} else {
+ 			splat_vprint(file, SPLAT_CONDVAR_TEST5_NAME,
+ 			           "Thread correctly timed out but was only "
+ 			           "asleep for %d.%d seconds (%d second "
+-			           "min)\n", (int)whole_delta, remain_delta, 1);
++			           "min)\n", (int)whole_delta,
++				   (int)remain_delta, 1);
+ 			rc = -ETIMEDOUT;
+ 		}
+ 	} else {
+ 		splat_vprint(file, SPLAT_CONDVAR_TEST5_NAME,
+ 		           "Thread exited after only %d.%d seconds, it "
+ 		           "did not hit the %d second timeout\n",
+-		           (int)whole_delta, remain_delta, 1);
++		           (int)whole_delta, (int)remain_delta, 1);
+ 		rc = -ETIMEDOUT;
+ 	}
+ 
+-- 
+2.8.1
+

@@ -36,14 +36,21 @@ splat_cmd=/usr/sbin/splat
 #
 SPLAT_TESTS=\
 "kmem:kmem_alloc kmem:kmem_zalloc kmem:vmem_alloc "\
-"kmem:vmem_zalloc kmem:slab_small kmem:slab_large "\
-"kmem:slab_align kmem:slab_reap kmem:slab_age "\
+"kmem:vmem_zalloc kmem:slab_small "\
+"kmem:slab_reap kmem:slab_age "\
 "kmem:slab_lock taskq:single taskq:multiple "\
 "taskq:system taskq:wait taskq:front taskq:recurse "\
 "taskq:contention taskq:delay taskq:cancel taskq:dynamic "\
 "krng:all mutex:all condvar:all thread:all rwlock:all "\
 "time:all vnode:all kobj:all atomic:all list:all "\
 "generic:all cred:all zlib:all linux:all"
+
+memtotal=$(grep "MemTotal" /proc/meminfo | awk '{print $2}')
+if [ ! -z $memtotal ]; then
+        if [ $memtotal -gt 4194304 ]; then
+		SPLAT_TESTS="kmem:slab_large kmem:slab_align $SPLAT_TESTS"
+        fi
+fi
 
 tests=""
 for t in ${SPLAT_TESTS}
@@ -59,6 +66,11 @@ die() {
 warn() {
 	echo "${prog}: $1" >&2
 }
+
+if [ $(getconf LONG_BIT) != 64 ]; then
+	echo "Skipping test, only valid for 64 bit architectures"
+	exit 0
+fi
 
 if [ -n "$V" ]; then
 	verbose="-v"
