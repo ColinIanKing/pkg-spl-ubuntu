@@ -1,3 +1,11 @@
+spl-linux (0.6.5.6-0ubuntu2) xenial; urgency=medium
+
+  * Force dkms autopkgtest, such that modules are installed even if stock
+    kernel comes with identical module tool. We are testing that dkms
+    module can be forced on top of pre-compiled ones.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 07 Apr 2016 11:08:14 +0100
+
 spl-linux (0.6.5.6-0ubuntu1) xenial; urgency=medium
 
   * Sync with upstream 0.6.5.6 release
